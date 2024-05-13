@@ -22,14 +22,48 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+### Creación del Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+En este repositorio se ha desarrollado una aplicación backend utilizando Node.js con el framework NestJS, Sequelize como ORM para la conexión a la base de datos relacional y JWT para la autenticación de usuarios. Además, se ha integrado Swagger para documentar la API REST.
+
+#### Implementaciones:
+
+1. **Base de Datos Relacional:** Se ha utilizado Sequelize como ORM, lo que permite conectar la aplicación a una base de datos relacional.
+
+2. **Entidades:** Se han definido dos entidades principales:
+   - **Usuarios:** Cuentas de usuario con campos como usuario y contraseña, cumpliendo con los requisitos mínimos.
+   - **Productos:** Se han creado los modelos necesarios para almacenar la información detallada en el archivo Excel de productos adjunto.
+
+3. **Carga de Datos:** Una vez creadas las tablas, se ha implementado la funcionalidad para cargar los productos detallados en el archivo Excel a la base de datos.
+
+4. **Autenticación de Usuarios:** Se ha implementado un endpoint para autenticar usuarios basado en su usuario/contraseña.
+
+5. **API REST:** Se han creado los endpoints necesarios para generar una API REST para la gestión de productos.
+
+#### Tecnologías Utilizadas:
+
+- **Node.js:** Plataforma de desarrollo utilizada para el backend.
+- **NestJS:** Framework de Node.js utilizado para crear la aplicación backend.
+- **Sequelize:** ORM utilizado para interactuar con la base de datos relacional.
+- **JWT:** Sistema de autenticación utilizado para gestionar la seguridad de la aplicación.
+- **Swagger:** Herramienta utilizada para documentar la API REST.
+
+#### Instrucciones de Uso:
+
 
 ## Installation
 
+1. **Pre-requisite:** Ensure you have Node.js v16.x installed. You can download it [here](https://nodejs.org/).
+2. **Pre-requisite:** Ensure MySQL is installed on your system.
+3. **Pre-requisite:** configurar archivo .env con las Variables de la Base de datos
+
 ```bash
 $ npm install
+
+# Data Mock para MYSQL basado en excel brindado
+$ npm run seed
+
+
 ```
 
 ## Running the app
@@ -38,35 +72,13 @@ $ npm install
 # development
 $ npm run start
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+## docs Swagger API
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Backend  Services RES API- [http://localhost:8080/](http://localhost:8080/)
+- Backend Swagger Docs - [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ## License
 
