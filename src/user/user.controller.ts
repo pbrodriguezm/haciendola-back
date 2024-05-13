@@ -16,7 +16,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 @ApiBearerAuth()
 @ApiUnauthorizedResponse({
@@ -27,6 +27,7 @@ import { AuthGuard } from 'src/auth/auth.guard';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.userService.create(createUserDto);
@@ -37,12 +38,12 @@ export class UserController {
   async findAll(): Promise<User[]> {
     return this.userService.findAll();
   }
-
+  @UseGuards(AuthGuard)
   @Get(':username')
   async findOne(@Param('username') username: string): Promise<User | null> {
     return this.userService.findOne(username);
   }
-
+  @UseGuards(AuthGuard)
   @Put(':username')
   async update(
     @Param('username') username: string,
@@ -51,6 +52,7 @@ export class UserController {
     return this.userService.update(username, createUserDto);
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':username')
   async remove(@Param('username') username: string): Promise<void> {
     return this.userService.remove(username);

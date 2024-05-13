@@ -40,7 +40,6 @@ async function seed() {
         compare_price: comparePrice,
         barcode,
       };
-      console.log('Row values:', handle);
       productsToInsert.push(product);
     });
 
@@ -53,10 +52,12 @@ async function seed() {
 
     await User.bulkCreate([
       {
-        username: 'user1',
-        password: 'password1',
+        username: 'admin',
+        password:
+          '$2a$10$HmzDi5Mm2Wh98aZDpwlqxO/2mes2ea8.3P7EJ5m8xPJSq9K6owUBO', //admin
         name: 'User 1',
         email: 'user1@example.com',
+        number: '51987947361',
       },
       {
         username: 'user2',

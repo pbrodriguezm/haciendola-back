@@ -1,5 +1,5 @@
 export class CreateProductDto {
-  handle: string;
+  handle?: string;
   title: string;
   description: string;
   sku: string;

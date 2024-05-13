@@ -15,6 +15,9 @@ export class User extends Model {
   @Column
   email: string;
 
+  @Column
+  number: string;
+
   @Column({ defaultValue: new Date() })
   createdAt: Date;
 

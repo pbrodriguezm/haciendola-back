@@ -11,7 +11,28 @@ export class ProductService {
   ) {}
 
   async create(createProductDto: CreateProductDto): Promise<Product> {
-    return await this.productModel.create({ createProductDto });
+    const {
+      handle,
+      title,
+      description,
+      sku,
+      grams,
+      stock,
+      price,
+      compare_price,
+      barcode,
+    } = createProductDto;
+    return await this.productModel.create({
+      handle,
+      title,
+      description,
+      sku,
+      grams,
+      stock,
+      price,
+      compare_price,
+      barcode,
+    });
   }
 
   async findAll(): Promise<Product[]> {
